@@ -13,20 +13,28 @@ class Computer
 {
 
     private $procType;
-    private $serialNumber = 0;
+    private $serialNumber;
+
+    private static $activeComputer = 0 ;
     public static $count = 0;
 
     public function __construct($procType = "Unknown processor")
     {
         $this->setProcType($procType);
         self::$count++;
+        self::$activeComputer++;
         $this->serialNumber = self::$count;
     }
 
-    public function setProcType($procType)
+    public function __destruct()
     {
-        if ($procType !== "") {
-            $this->procType = $procType;
+        self::$activeComputer--;
+    }
+
+    public function setProcType($type)
+    {
+        if ($type !== "") {
+            $this->procType = $type;
         } else {
             $this->procType = "Unknown processor";
         }
@@ -42,6 +50,6 @@ class Computer
         echo "---------------" . PHP_EOL;
         echo "Computer number " . $this->serialNumber . PHP_EOL;
         echo " processor : " . $this->getProcType() . PHP_EOL;
-        echo "---------------" . PHP_EOL;
+        echo "    Active   " . self::$activeComputer . PHP_EOL;
     }
 }

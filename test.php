@@ -11,5 +11,9 @@ $computer4 = new \wcs\Computer();
 $computer1 ->getInfos();
 $computer2 ->getInfos();
 $computer3 ->getInfos();
+unset($computer1);
 $computer4 ->getInfos();
+
+$computer5 = new \wcs\Computer('AMD');
+echo $computer5->getInfos() . PHP_EOL;
 
