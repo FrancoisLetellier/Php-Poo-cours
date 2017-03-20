@@ -14,7 +14,7 @@ class Computer
 
     private $procType;
 
-    public function __construct($procType)
+    public function __construct($procType = "Unknown processor")
     {
         $this->setProcType($procType);
     }
