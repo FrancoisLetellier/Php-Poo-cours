@@ -23,7 +23,9 @@ class Computer
     {
         if ($procType !== "") {
             $this->procType = $procType;
-       }
+        } else {
+            $this->procType = "Unknown processor";
+        }
     }
 
     public function getProcType()
