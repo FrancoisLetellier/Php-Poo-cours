@@ -12,25 +12,21 @@ namespace wcs; /** toujours en haut  */
 class Computer
 {
 
-   private $procType;
+    private $procType;
 
-   private function init() /** init est une fonction qui renvoi une valeur */
-   {
-       $this->procType = "unknown processor";
-   }
+    public function __construct($procType)
+    {
+        $this->setProcType($procType);
+    }
 
-   public function setProcType($procType)
-   {
-       if($procType === ""){
-           $this->init();
-       }else{
-           $this->procType = $procType;
+    public function setProcType($procType)
+    {
+        if ($procType !== "") {
+            $this->procType = $procType;
        }
+    }
 
-       $this->procType = $procType; /** on peut mettre la $procType à la place de $type, $this->procType définit la class*/
-   }
-
-   public function getProcType()
+    public function getProcType()
    {
        return $this->procType;
    }
