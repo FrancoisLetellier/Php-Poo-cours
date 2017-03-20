@@ -12,16 +12,21 @@ namespace wcs; /** toujours en haut  */
 class Computer
 {
 
-   public $procType;
+   private $procType;
 
    public function init() /** init est une fonction qui renvoi une valeur */
    {
        $this->procType = "Intel";
    }
 
-   public function setProcType($type)
+   public function setProcType($procType)
    {
-       $this->procType = $type; /** on peut mettre la $procType à la place de $type, $this->procType définit la class*/
+       if($procType === "")
+       {
+           throw new \Exception("Cannot set empty value");
+       }
+
+       $this->procType = $procType; /** on peut mettre la $procType à la place de $type, $this->procType définit la class*/
    }
 
    public function getProcType()
