@@ -14,16 +14,17 @@ class Computer
 
    private $procType;
 
-   public function init() /** init est une fonction qui renvoi une valeur */
+   private function init() /** init est une fonction qui renvoi une valeur */
    {
-       $this->procType = "Intel";
+       $this->procType = "unknown processor";
    }
 
    public function setProcType($procType)
    {
-       if($procType === "")
-       {
-           throw new \Exception("Cannot set empty value");
+       if($procType === ""){
+           $this->init();
+       }else{
+           $this->procType = $procType;
        }
 
        $this->procType = $procType; /** on peut mettre la $procType à la place de $type, $this->procType définit la class*/
