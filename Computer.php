@@ -13,14 +13,14 @@ class Computer
 {
 
     private $procType;
-    private $serialNumber;
+    private $serialNumber = 0;
     public static $count = 0;
 
     public function __construct($procType = "Unknown processor")
     {
         $this->setProcType($procType);
         self::$count++;
-        $this->serialNumnber = self ::$count;
+        $this->serialNumber = self::$count;
     }
 
     public function setProcType($procType)

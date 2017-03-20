@@ -10,6 +10,6 @@ $computer4 = new \wcs\Computer();
 
 $computer1 ->getInfos();
 $computer2 ->getInfos();
-$computer3->getInfos();
+$computer3 ->getInfos();
 $computer4 ->getInfos();
 
